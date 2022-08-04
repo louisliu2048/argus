@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/evmos/evmos
+name: buf.build/louisliu2048/argus
 build:
   excludes:
     - google/protobuf

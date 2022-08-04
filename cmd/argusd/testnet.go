@@ -6,6 +6,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	arguskr "github.com/louisliu2048/argus/crypto/keyring"
 	"net"
 	"os"
 	"path/filepath"
@@ -44,7 +45,6 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
 	cmdcfg "github.com/louisliu2048/argus/cmd/config"
-	evmoskr "github.com/louisliu2048/argus/crypto/keyring"
 	"github.com/louisliu2048/argus/testutil/network"
 )
 
@@ -211,7 +211,7 @@ func initTestnetFiles(
 	args initArgs,
 ) error {
 	if args.chainID == "" {
-		args.chainID = fmt.Sprintf("evmos_%d-1", tmrand.Int63n(9999999999999)+1)
+		args.chainID = fmt.Sprintf("argus_%d-1", tmrand.Int63n(9999999999999)+1)
 	}
 
 	nodeIDs := make([]string, args.numValidators)
@@ -263,7 +263,7 @@ func initTestnetFiles(
 		memo := fmt.Sprintf("%s@%s:26656", nodeIDs[i], ip)
 		genFiles = append(genFiles, nodeConfig.GenesisFile())
 
-		kb, err := keyring.New(sdk.KeyringServiceName(), args.keyringBackend, nodeDir, inBuf, evmoskr.Option())
+		kb, err := keyring.New(sdk.KeyringServiceName(), args.keyringBackend, nodeDir, inBuf, arguskr.Option())
 		if err != nil {
 			return err
 		}

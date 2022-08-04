@@ -16,7 +16,7 @@ SIMAPP = ./app
 HTTPS_GIT := https://github.com/louisliu2048/argus.git
 DOCKER := $(shell which docker)
 DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace bufbuild/buf
-NAMESPACE := tharsishq
+NAMESPACE := louisliu2048
 PROJECT := argus
 DOCKER_IMAGE := $(NAMESPACE)/$(PROJECT)
 COMMIT_HASH := $(shell git rev-parse --short=7 HEAD)

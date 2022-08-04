@@ -17,9 +17,9 @@ func TestInitCmd(t *testing.T) {
 	rootCmd, _ := argusd.NewRootCmd()
 	rootCmd.SetArgs([]string{
 		"init",       // Test the init cmd
-		"evmos-test", // Moniker
+		"argus-test", // Moniker
 		fmt.Sprintf("--%s=%s", cli.FlagOverwrite, "true"), // Overwrite genesis.json, in case it already exists
-		fmt.Sprintf("--%s=%s", flags.FlagChainID, "evmos_9000-1"),
+		fmt.Sprintf("--%s=%s", flags.FlagChainID, "argus_9000-1"),
 	})
 
 	err := svrcmd.Execute(rootCmd, app.DefaultNodeHome)

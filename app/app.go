@@ -118,7 +118,7 @@ func init() {
 
 	DefaultNodeHome = filepath.Join(userHomeDir, ".argusd")
 
-	// manually update the power reduction by replacing micro (u) -> atto (a) evmos
+	// manually update the power reduction by replacing micro (u) -> atto (a) argus
 	sdk.DefaultPowerReduction = ethermint.PowerReduction
 	// modify fee market parameter defaults through global
 	//feemarkettypes.DefaultMinGasPrice = v5.MainnetMinGasPrices

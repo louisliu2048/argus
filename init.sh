@@ -70,9 +70,10 @@ fi
 
 # Allocate genesis accounts (cosmos formatted addresses)
 argusd add-genesis-account $KEY 100000000000000000000000000aargus --keyring-backend $KEYRING
+argusd add-genesis-account 0x97DA0F6C071C051127B92Da941e259B1104c6a8F 100000000000000000000000000aargus
 
-total_supply=100000000000000000000000000
-cat $HOME/.argusd/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.argusd/config/tmp_genesis.json && mv $HOME/.argusd/config/tmp_genesis.json $HOME/.argusd/config/genesis.json
+#total_supply=100000000000000000000000000
+#cat $HOME/.argusd/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.argusd/config/tmp_genesis.json && mv $HOME/.argusd/config/tmp_genesis.json $HOME/.argusd/config/genesis.json
 
 # Sign genesis transaction
 argusd gentx $KEY 1000000000000000000000aargus --keyring-backend $KEYRING --chain-id $CHAINID

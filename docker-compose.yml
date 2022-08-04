@@ -35,20 +35,20 @@ services:
     volumes:
       - ./build/node2/argusd:/argus:Z
     command:
-      - /argusd start --home /evmos
+      - /argusd start --home /argus
     networks:
       localnet:
         ipv4_address: 192.167.10.4
 
   node3:
-    container_name: evmosnode3
-    image: "evmos/node"
+    container_name: argusnode3
+    image: "argus/node"
     ports:
       - "26663-26664:26656-26657"
     volumes:
-      - ./build/node3/argusd:/evmos:Z
+      - ./build/node3/argusd:/argus:Z
     command:
-      - /argusd start --home /evmos
+      - /argusd start --home /argus
     networks:
       localnet:
         ipv4_address: 192.167.10.5

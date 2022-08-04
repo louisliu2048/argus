@@ -17,7 +17,7 @@ import (
 	"github.com/louisliu2048/argus/types"
 )
 
-func TestEvmosExport(t *testing.T) {
+func TestArgusExport(t *testing.T) {
 	db := dbm.NewMemDB()
 	app := NewArgus(log.NewTMLogger(log.NewSyncWriter(os.Stdout)), db, nil, true, map[int64]bool{}, DefaultNodeHome, 0, encoding.MakeConfig(ModuleBasics), simapp.EmptyAppOptions{})
 
