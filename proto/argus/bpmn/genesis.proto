@@ -1,0 +1,14 @@
+syntax = "proto3";
+package argus.bpmn;
+
+import "gogoproto/gogo.proto";
+import "argus/bpmn/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/louisliu2048/argus/x/bpmn/types";
+
+// GenesisState defines the bpmn module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}

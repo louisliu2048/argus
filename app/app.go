@@ -3,6 +3,10 @@ package app
 import (
 	"context"
 	"encoding/json"
+	"github.com/louisliu2048/argus/x/bpmn"
+	bpmnkeeper "github.com/louisliu2048/argus/x/bpmn/keeper"
+	bpmntypes "github.com/louisliu2048/argus/x/bpmn/types"
+
 	"io"
 	"net/http"
 	"os"
@@ -160,6 +164,7 @@ var (
 		// Ethermint modules
 		evm.AppModuleBasic{},
 		feemarket.AppModuleBasic{},
+		bpmn.AppModule{},
 	)
 
 	// module account permissions
@@ -230,6 +235,8 @@ type Argus struct {
 	EvmKeeper       *evmkeeper.Keeper
 	FeeMarketKeeper feemarketkeeper.Keeper
 
+	BpmnKeeper bpmnkeeper.Keeper
+
 	// the module manager
 	mm *module.Manager
 
@@ -282,6 +289,7 @@ func NewArgus(
 		ibchost.StoreKey, ibctransfertypes.StoreKey,
 		// ethermint keys
 		evmtypes.StoreKey, feemarkettypes.StoreKey,
+		bpmntypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -354,6 +362,12 @@ func NewArgus(
 		appCodec, keys[evmtypes.StoreKey], tkeys[evmtypes.TransientKey], app.GetSubspace(evmtypes.ModuleName),
 		app.AccountKeeper, app.BankKeeper, &stakingKeeper, app.FeeMarketKeeper,
 		tracer,
+	)
+
+	app.BpmnKeeper = *bpmnkeeper.NewKeeper(
+		appCodec,
+		keys[bpmntypes.StoreKey],
+		app.GetSubspace(bpmntypes.ModuleName),
 	)
 
 	// Create IBC Keeper
@@ -448,6 +462,7 @@ func NewArgus(
 		// Ethermint app modules
 		evm.NewAppModule(app.EvmKeeper, app.AccountKeeper),
 		feemarket.NewAppModule(app.FeeMarketKeeper),
+		bpmn.NewAppModule(appCodec, app.BpmnKeeper, app.AccountKeeper, app.BankKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -478,6 +493,7 @@ func NewArgus(
 		feegrant.ModuleName,
 		paramstypes.ModuleName,
 		vestingtypes.ModuleName,
+		bpmntypes.ModuleName,
 	)
 
 	// NOTE: fee market module must go last in order to retrieve the block gas used.
@@ -503,6 +519,7 @@ func NewArgus(
 		paramstypes.ModuleName,
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
+		bpmntypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -535,6 +552,8 @@ func NewArgus(
 		paramstypes.ModuleName,
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
+		bpmntypes.ModuleName,
+
 		// NOTE: crisis module must go at the end to check for invariants on each module
 		crisistypes.ModuleName,
 	)
@@ -568,6 +587,7 @@ func NewArgus(
 		transferModule,
 		evm.NewAppModule(app.EvmKeeper, app.AccountKeeper),
 		feemarket.NewAppModule(app.FeeMarketKeeper),
+		bpmn.NewAppModule(appCodec, app.BpmnKeeper, app.AccountKeeper, app.BankKeeper),
 	)
 
 	app.sm.RegisterStoreDecoders()
@@ -844,6 +864,8 @@ func initParamsKeeper(
 	// ethermint subspaces
 	paramsKeeper.Subspace(evmtypes.ModuleName)
 	paramsKeeper.Subspace(feemarkettypes.ModuleName)
+
+	paramsKeeper.Subspace(bpmntypes.ModuleName)
 	// Argus subspaces
 	return paramsKeeper
 }

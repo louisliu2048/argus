@@ -1,0 +1,12 @@
+syntax = "proto3";
+package argus.bpmn;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/louisliu2048/argus/x/bpmn/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+
+}
