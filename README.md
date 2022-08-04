@@ -32,10 +32,10 @@ parent:
     <img alt="Lint Status" src="https://github.com/louisliu2048/argus/actions/workflows/lint.yml/badge.svg?branch=main" />
   </a>
   <a href="https://codecov.io/gh/tharsis/argus">
-    <img alt="Code Coverage" src="https://codecov.io/gh/tharsis/evmos/branch/main/graph/badge.svg" />
+    <img alt="Code Coverage" src="https://codecov.io/gh/tharsis/argus/branch/main/graph/badge.svg" />
   </a>
-  <a href="https://twitter.com/EvmosOrg">
-    <img alt="Twitter Follow argus" src="https://img.shields.io/twitter/follow/EvmosOrg"/>
+  <a href="https://twitter.com/ArgusOrg">
+    <img alt="Twitter Follow argus" src="https://img.shields.io/twitter/follow/ArgusOrg"/>
   </a>
 </div>
 
@@ -46,7 +46,7 @@ interoperable with Ethereum. It's built using the [Cosmos SDK](https://github.co
 
 ## Installation
 
-For prerequisites and detailed build instructions please read the [Installation](https://evmos.dev/validators/quickstart/installation.html) instructions. Once the dependencies are installed, run:
+For prerequisites and detailed build instructions please read the [Installation](https://argus.dev/validators/quickstart/installation.html) instructions. Once the dependencies are installed, run:
 
 ```bash
 make install
@@ -56,4 +56,4 @@ Or check out the latest [release](https://github.com/louisliu2048/argus/releases
 
 ## Quick Start
 
-To learn how the Argus works from a high-level perspective, go to the [Introduction](https://evmos.dev/about/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://evmos.dev/validators/quickstart/run_node.html).
+To learn how the Argus works from a high-level perspective, go to the [Introduction](https://argus.dev/about/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://argus.dev/validators/quickstart/run_node.html).
