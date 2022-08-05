@@ -725,10 +725,10 @@ github.com/libp2p/go-buffer-pool v0.0.2 h1:QNK2iAFa8gjAe1SPz6mHSMuCcjs+X1wlHzeOS
 github.com/libp2p/go-buffer-pool v0.0.2/go.mod h1:MvaB6xw5vOrDl8rYZGLFdKAuk/hRoRZd1Vi32+RXyFM=
 github.com/lightstep/lightstep-tracer-common/golang/gogo v0.0.0-20190605223551-bc2310a04743/go.mod h1:qklhhLq1aX+mtWk9cPHPzaBjWImj5ULL6C7HFJtXQMM=
 github.com/lightstep/lightstep-tracer-go v0.18.1/go.mod h1:jlF1pusYV4pidLvZ+XD0UBX0ZE6WURAspgAczcDHrL4=
-github.com/louisliu2048/cosmos-sdk v0.45.7-0.20220804014642-d4ca26258526 h1:ltsykH1V5c2+bXhgJdpyPOCRdlZhL8Tb+V5exxrueGg=
-github.com/louisliu2048/cosmos-sdk v0.45.7-0.20220804014642-d4ca26258526/go.mod h1:bPeeVMEtVvH3y3xAGHVbK+/CZlpaazzh77hG8ZrcJpI=
-github.com/louisliu2048/ethermint v0.17.2 h1:9qrxN4Tr449kMs/f0flyHC8Eebzi2pr9BiTfJ3gP+qc=
-github.com/louisliu2048/ethermint v0.17.2/go.mod h1:BmXULZy8lbld5KgNE0zM4b7Dy1irPpL6nsDH11SMNzQ=
+github.com/louisliu2048/cosmos-sdk v0.45.7-0.20220805065647-0330120f4c46 h1:22VYhJXeSFKoXG9YfEiqq7dxC9nQK4CbgkgcYkYRm98=
+github.com/louisliu2048/cosmos-sdk v0.45.7-0.20220805065647-0330120f4c46/go.mod h1:bPeeVMEtVvH3y3xAGHVbK+/CZlpaazzh77hG8ZrcJpI=
+github.com/louisliu2048/ethermint v0.17.3-0.20220805070512-ad392bc51994 h1:HWJGRS/x4l2e0DttBtJeQQ0dsqsNLv8gwl0V2K5hJHE=
+github.com/louisliu2048/ethermint v0.17.3-0.20220805070512-ad392bc51994/go.mod h1:BmXULZy8lbld5KgNE0zM4b7Dy1irPpL6nsDH11SMNzQ=
 github.com/lucasjones/reggen v0.0.0-20180717132126-cdb49ff09d77/go.mod h1:5ELEyG+X8f+meRWHuqUOewBOhvHkl7M76pdGEansxW4=
 github.com/magiconair/properties v1.8.0/go.mod h1:PppfXfuXeibc/6YijjN8zIbojt8czPbwD3XqdrwzmxQ=
 github.com/magiconair/properties v1.8.1/go.mod h1:PppfXfuXeibc/6YijjN8zIbojt8czPbwD3XqdrwzmxQ=

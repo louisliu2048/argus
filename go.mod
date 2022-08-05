@@ -151,8 +151,8 @@ require (
 
 replace (
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.1.7-0.20210622111912-ef00f8ac3d76
-	github.com/cosmos/cosmos-sdk => github.com/louisliu2048/cosmos-sdk v0.45.7-0.20220804014642-d4ca26258526
-	github.com/evmos/ethermint => github.com/louisliu2048/ethermint v0.17.2
+	github.com/cosmos/cosmos-sdk => github.com/louisliu2048/cosmos-sdk v0.45.7-0.20220805065647-0330120f4c46
+	github.com/evmos/ethermint => github.com/louisliu2048/ethermint v0.17.3-0.20220805070512-ad392bc51994
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2
 )

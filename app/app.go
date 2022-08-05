@@ -368,6 +368,7 @@ func NewArgus(
 		appCodec,
 		keys[bpmntypes.StoreKey],
 		app.GetSubspace(bpmntypes.ModuleName),
+		app.EvmKeeper,
 	)
 
 	// Create IBC Keeper

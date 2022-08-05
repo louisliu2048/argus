@@ -347,6 +347,110 @@ func (m *MsgInvokeFlowResponse) GetStatus() int32 {
 	return 0
 }
 
+type MsgCallEvm struct {
+	Creator  string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Contract string `protobuf:"bytes,2,opt,name=contract,proto3" json:"contract,omitempty"`
+	CallData string `protobuf:"bytes,3,opt,name=callData,proto3" json:"callData,omitempty"`
+}
+
+func (m *MsgCallEvm) Reset()         { *m = MsgCallEvm{} }
+func (m *MsgCallEvm) String() string { return proto.CompactTextString(m) }
+func (*MsgCallEvm) ProtoMessage()    {}
+func (*MsgCallEvm) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0cc0ea618a8e6263, []int{6}
+}
+func (m *MsgCallEvm) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCallEvm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCallEvm.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCallEvm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCallEvm.Merge(m, src)
+}
+func (m *MsgCallEvm) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCallEvm) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCallEvm.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCallEvm proto.InternalMessageInfo
+
+func (m *MsgCallEvm) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCallEvm) GetContract() string {
+	if m != nil {
+		return m.Contract
+	}
+	return ""
+}
+
+func (m *MsgCallEvm) GetCallData() string {
+	if m != nil {
+		return m.CallData
+	}
+	return ""
+}
+
+type MsgCallEvmResponse struct {
+	Status int32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (m *MsgCallEvmResponse) Reset()         { *m = MsgCallEvmResponse{} }
+func (m *MsgCallEvmResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCallEvmResponse) ProtoMessage()    {}
+func (*MsgCallEvmResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0cc0ea618a8e6263, []int{7}
+}
+func (m *MsgCallEvmResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCallEvmResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCallEvmResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCallEvmResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCallEvmResponse.Merge(m, src)
+}
+func (m *MsgCallEvmResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCallEvmResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCallEvmResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCallEvmResponse proto.InternalMessageInfo
+
+func (m *MsgCallEvmResponse) GetStatus() int32 {
+	if m != nil {
+		return m.Status
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*MsgDeployFlow)(nil), "argus.bpmn.MsgDeployFlow")
 	proto.RegisterType((*MsgDeployFlowResponse)(nil), "argus.bpmn.MsgDeployFlowResponse")
@@ -354,36 +458,41 @@ func init() {
 	proto.RegisterType((*MsgStartFlowResponse)(nil), "argus.bpmn.MsgStartFlowResponse")
 	proto.RegisterType((*MsgInvokeFlow)(nil), "argus.bpmn.MsgInvokeFlow")
 	proto.RegisterType((*MsgInvokeFlowResponse)(nil), "argus.bpmn.MsgInvokeFlowResponse")
+	proto.RegisterType((*MsgCallEvm)(nil), "argus.bpmn.MsgCallEvm")
+	proto.RegisterType((*MsgCallEvmResponse)(nil), "argus.bpmn.MsgCallEvmResponse")
 }
 
 func init() { proto.RegisterFile("argus/bpmn/tx.proto", fileDescriptor_0cc0ea618a8e6263) }
 
 var fileDescriptor_0cc0ea618a8e6263 = []byte{
-	// 373 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xc1, 0x4e, 0xfa, 0x40,
-	0x10, 0xc6, 0xe9, 0x9f, 0xbf, 0x20, 0xa3, 0x5e, 0x56, 0x45, 0xe4, 0x50, 0xb1, 0x27, 0xe3, 0xa1,
-	0x35, 0xe8, 0xc1, 0x8b, 0x17, 0x43, 0x54, 0x48, 0x88, 0x09, 0xde, 0x8c, 0x89, 0x59, 0xda, 0xb5,
-	0x6e, 0x5c, 0xba, 0x4d, 0x77, 0x2b, 0xf0, 0x16, 0x3e, 0x96, 0x47, 0x8e, 0x1e, 0x0d, 0x24, 0x3e,
-	0x87, 0xe9, 0x5a, 0xda, 0x02, 0x21, 0xbd, 0xf5, 0x9b, 0xaf, 0xf3, 0xed, 0x2f, 0x33, 0x19, 0xd8,
-	0xc5, 0x81, 0x1b, 0x0a, 0xab, 0xef, 0x0f, 0x3c, 0x4b, 0x8e, 0x4c, 0x3f, 0xe0, 0x92, 0x23, 0x50,
-	0x45, 0x33, 0x2a, 0x1a, 0x57, 0xb0, 0xd3, 0x15, 0x6e, 0x8b, 0xf8, 0x8c, 0x8f, 0x6f, 0x18, 0x1f,
-	0xa2, 0x1a, 0x94, 0xed, 0x80, 0x60, 0xc9, 0x83, 0x9a, 0xd6, 0xd0, 0x4e, 0x2a, 0xbd, 0xb9, 0x44,
-	0x08, 0xfe, 0x3b, 0x58, 0xe2, 0xda, 0x3f, 0x55, 0x56, 0xdf, 0xc6, 0x1d, 0xec, 0x2f, 0xb4, 0xf7,
-	0x88, 0xf0, 0xb9, 0x27, 0x08, 0xaa, 0x42, 0x49, 0x48, 0x2c, 0x43, 0xa1, 0x52, 0x36, 0x7a, 0xb1,
-	0x42, 0x07, 0x50, 0x7e, 0x61, 0x7c, 0xf8, 0x4c, 0x9d, 0x38, 0xa7, 0x14, 0xc9, 0xb6, 0x63, 0x3c,
-	0xc1, 0x76, 0x57, 0xb8, 0x0f, 0x12, 0x07, 0x32, 0x87, 0xa3, 0x0a, 0x71, 0xcf, 0x62, 0x02, 0xaa,
-	0xc3, 0x26, 0xf5, 0xa8, 0x6c, 0x45, 0x8c, 0x45, 0xe5, 0x24, 0xda, 0xb8, 0x87, 0xbd, 0x6c, 0x7a,
-	0x2e, 0xe6, 0x11, 0x6c, 0x51, 0x4f, 0x48, 0xec, 0xd9, 0x24, 0x45, 0x85, 0x79, 0xa9, 0xed, 0x18,
-	0x44, 0xcd, 0xad, 0xed, 0xbd, 0xf3, 0x37, 0x92, 0xc3, 0xab, 0x43, 0xa6, 0x71, 0x35, 0x2a, 0xe2,
-	0xb6, 0x31, 0x63, 0x59, 0xee, 0xb9, 0x36, 0x2c, 0x35, 0xdf, 0xf4, 0x99, 0x3c, 0xf0, 0xe6, 0x8f,
-	0x06, 0xc5, 0xae, 0x70, 0x51, 0x07, 0x20, 0xb3, 0xd4, 0x43, 0x33, 0x5d, 0xb9, 0xb9, 0xb0, 0xb0,
-	0xfa, 0xf1, 0x5a, 0x2b, 0x79, 0xeb, 0x16, 0x2a, 0x99, 0xbd, 0x2c, 0xfd, 0x9f, 0x38, 0xf5, 0xc6,
-	0x3a, 0x27, 0x09, 0xea, 0x00, 0x64, 0x26, 0xb6, 0x0c, 0x95, 0x5a, 0x2b, 0x50, 0xab, 0x03, 0xb8,
-	0x6e, 0x7d, 0x4e, 0x75, 0x6d, 0x32, 0xd5, 0xb5, 0xef, 0xa9, 0xae, 0x7d, 0xcc, 0xf4, 0xc2, 0x64,
-	0xa6, 0x17, 0xbe, 0x66, 0x7a, 0xe1, 0xf1, 0xd4, 0xa5, 0xf2, 0x35, 0xec, 0x9b, 0x36, 0x1f, 0x58,
-	0x8c, 0x87, 0x54, 0x30, 0x1a, 0x36, 0xcf, 0x2e, 0x2e, 0xad, 0xbf, 0x5b, 0x18, 0xc5, 0xd7, 0x30,
-	0xf6, 0x89, 0xe8, 0x97, 0xd4, 0x45, 0x9c, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0xd3, 0xbf, 0x51,
-	0x92, 0x28, 0x03, 0x00, 0x00,
+	// 425 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xcb, 0x8e, 0xd3, 0x30,
+	0x14, 0x86, 0x9b, 0x16, 0x5a, 0x7a, 0x80, 0x8d, 0x81, 0x52, 0xb2, 0x30, 0x25, 0x2b, 0x84, 0x50,
+	0x82, 0x0a, 0x0b, 0x36, 0x2c, 0x80, 0x72, 0x69, 0xa5, 0x08, 0xa9, 0xec, 0x10, 0x02, 0xb9, 0x89,
+	0x09, 0xd1, 0xb8, 0x71, 0x14, 0x3b, 0xbd, 0xbc, 0xc5, 0xbc, 0xc6, 0xbc, 0xc9, 0x2c, 0xbb, 0x9c,
+	0xe5, 0xa8, 0x7d, 0x91, 0x51, 0x3c, 0xb9, 0xf5, 0x9a, 0x5d, 0xfe, 0xff, 0xc4, 0xbf, 0x3f, 0x1d,
+	0x9f, 0x03, 0x8f, 0x48, 0xe4, 0xc5, 0xc2, 0x9a, 0x84, 0xd3, 0xc0, 0x92, 0x0b, 0x33, 0x8c, 0xb8,
+	0xe4, 0x08, 0x94, 0x69, 0x26, 0xa6, 0xf1, 0x01, 0x1e, 0xda, 0xc2, 0x1b, 0xd0, 0x90, 0xf1, 0xe5,
+	0x57, 0xc6, 0xe7, 0xa8, 0x0b, 0x2d, 0x27, 0xa2, 0x44, 0xf2, 0xa8, 0xab, 0xf5, 0xb4, 0x97, 0xed,
+	0x71, 0x26, 0x11, 0x82, 0x3b, 0x2e, 0x91, 0xa4, 0x5b, 0x57, 0xb6, 0xfa, 0x36, 0xbe, 0xc3, 0x93,
+	0xad, 0xe3, 0x63, 0x2a, 0x42, 0x1e, 0x08, 0x8a, 0x3a, 0xd0, 0x14, 0x92, 0xc8, 0x58, 0xa8, 0x94,
+	0xbb, 0xe3, 0x54, 0xa1, 0xa7, 0xd0, 0xfa, 0xc7, 0xf8, 0xfc, 0xaf, 0xef, 0xa6, 0x39, 0xcd, 0x44,
+	0x0e, 0x5d, 0xe3, 0x37, 0x3c, 0xb0, 0x85, 0xf7, 0x53, 0x92, 0x48, 0x56, 0x70, 0x74, 0x20, 0x3d,
+	0xb3, 0x9d, 0x80, 0x74, 0xb8, 0xe7, 0x07, 0xbe, 0x1c, 0x24, 0x8c, 0x0d, 0x55, 0xc9, 0xb5, 0xf1,
+	0x03, 0x1e, 0x97, 0xd3, 0x2b, 0x31, 0x9f, 0xc3, 0x7d, 0x3f, 0x10, 0x92, 0x04, 0x0e, 0x2d, 0x50,
+	0x21, 0xb3, 0x86, 0xae, 0x41, 0x55, 0xdf, 0x86, 0xc1, 0x8c, 0x9f, 0xd1, 0x0a, 0x5e, 0x0c, 0xa5,
+	0x83, 0xfb, 0x51, 0x09, 0xb7, 0x43, 0x18, 0x2b, 0x73, 0x67, 0xda, 0xb0, 0x54, 0x7f, 0x8b, 0x6b,
+	0xaa, 0xc0, 0x8d, 0x3f, 0x00, 0xb6, 0xf0, 0x3e, 0x13, 0xc6, 0xbe, 0xcc, 0xa6, 0x27, 0xa0, 0x92,
+	0x4b, 0x79, 0x20, 0x23, 0xe2, 0xc8, 0x14, 0x29, 0xd7, 0x27, 0x81, 0x5e, 0x03, 0x2a, 0xf2, 0xab,
+	0x68, 0xfa, 0x17, 0x75, 0x68, 0xd8, 0xc2, 0x43, 0x23, 0x80, 0xd2, 0x88, 0x3d, 0x33, 0x8b, 0x01,
+	0x34, 0xb7, 0xc6, 0x47, 0x7f, 0x71, 0xb4, 0x94, 0xdf, 0xf5, 0x0d, 0xda, 0xa5, 0x29, 0xd9, 0xf9,
+	0x3f, 0xaf, 0xe8, 0xbd, 0x63, 0x95, 0x3c, 0x68, 0x04, 0x50, 0x7a, 0xbf, 0x5d, 0xa8, 0xa2, 0xb4,
+	0x07, 0x75, 0xe0, 0x39, 0x3e, 0x42, 0x2b, 0xeb, 0x79, 0x67, 0xe7, 0xef, 0xd4, 0xd7, 0xf1, 0x61,
+	0x3f, 0x8b, 0xf8, 0x34, 0xb8, 0x5c, 0x63, 0x6d, 0xb5, 0xc6, 0xda, 0xf5, 0x1a, 0x6b, 0xe7, 0x1b,
+	0x5c, 0x5b, 0x6d, 0x70, 0xed, 0x6a, 0x83, 0x6b, 0xbf, 0x5e, 0x79, 0xbe, 0xfc, 0x1f, 0x4f, 0x4c,
+	0x87, 0x4f, 0x2d, 0xc6, 0x63, 0x5f, 0x30, 0x3f, 0xee, 0xbf, 0x79, 0xf7, 0xde, 0xba, 0x5d, 0xee,
+	0x45, 0xba, 0xde, 0xcb, 0x90, 0x8a, 0x49, 0x53, 0xad, 0xf8, 0xdb, 0x9b, 0x00, 0x00, 0x00, 0xff,
+	0xff, 0x88, 0x70, 0x4c, 0xa2, 0xf9, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -401,6 +510,7 @@ type MsgClient interface {
 	DeployFlow(ctx context.Context, in *MsgDeployFlow, opts ...grpc.CallOption) (*MsgDeployFlowResponse, error)
 	StartFlow(ctx context.Context, in *MsgStartFlow, opts ...grpc.CallOption) (*MsgStartFlowResponse, error)
 	InvokeFlow(ctx context.Context, in *MsgInvokeFlow, opts ...grpc.CallOption) (*MsgInvokeFlowResponse, error)
+	CallEvm(ctx context.Context, in *MsgCallEvm, opts ...grpc.CallOption) (*MsgCallEvmResponse, error)
 }
 
 type msgClient struct {
@@ -438,11 +548,21 @@ func (c *msgClient) InvokeFlow(ctx context.Context, in *MsgInvokeFlow, opts ...g
 	return out, nil
 }
 
+func (c *msgClient) CallEvm(ctx context.Context, in *MsgCallEvm, opts ...grpc.CallOption) (*MsgCallEvmResponse, error) {
+	out := new(MsgCallEvmResponse)
+	err := c.cc.Invoke(ctx, "/argus.bpmn.Msg/CallEvm", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	DeployFlow(context.Context, *MsgDeployFlow) (*MsgDeployFlowResponse, error)
 	StartFlow(context.Context, *MsgStartFlow) (*MsgStartFlowResponse, error)
 	InvokeFlow(context.Context, *MsgInvokeFlow) (*MsgInvokeFlowResponse, error)
+	CallEvm(context.Context, *MsgCallEvm) (*MsgCallEvmResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -457,6 +577,9 @@ func (*UnimplementedMsgServer) StartFlow(ctx context.Context, req *MsgStartFlow)
 }
 func (*UnimplementedMsgServer) InvokeFlow(ctx context.Context, req *MsgInvokeFlow) (*MsgInvokeFlowResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InvokeFlow not implemented")
+}
+func (*UnimplementedMsgServer) CallEvm(ctx context.Context, req *MsgCallEvm) (*MsgCallEvmResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CallEvm not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -517,6 +640,24 @@ func _Msg_InvokeFlow_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CallEvm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCallEvm)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CallEvm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/argus.bpmn.Msg/CallEvm",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CallEvm(ctx, req.(*MsgCallEvm))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "argus.bpmn.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -532,6 +673,10 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "InvokeFlow",
 			Handler:    _Msg_InvokeFlow_Handler,
+		},
+		{
+			MethodName: "CallEvm",
+			Handler:    _Msg_CallEvm_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -761,6 +906,78 @@ func (m *MsgInvokeFlowResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCallEvm) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCallEvm) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCallEvm) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.CallData) > 0 {
+		i -= len(m.CallData)
+		copy(dAtA[i:], m.CallData)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.CallData)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Contract) > 0 {
+		i -= len(m.Contract)
+		copy(dAtA[i:], m.Contract)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Contract)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCallEvmResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCallEvmResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCallEvmResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Status != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Status))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -864,6 +1081,39 @@ func (m *MsgInvokeFlow) Size() (n int) {
 }
 
 func (m *MsgInvokeFlowResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Status != 0 {
+		n += 1 + sovTx(uint64(m.Status))
+	}
+	return n
+}
+
+func (m *MsgCallEvm) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Contract)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.CallData)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCallEvmResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1516,6 +1766,221 @@ func (m *MsgInvokeFlowResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgInvokeFlowResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Status", wireType)
+			}
+			m.Status = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Status |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCallEvm) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCallEvm: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCallEvm: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Contract", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Contract = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CallData", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.CallData = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCallEvmResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCallEvmResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCallEvmResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

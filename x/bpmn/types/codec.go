@@ -11,6 +11,7 @@ func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgDeployFlow{}, "bpmn/DeployFlow", nil)
 	cdc.RegisterConcrete(&MsgStartFlow{}, "bpmn/StartFlow", nil)
 	cdc.RegisterConcrete(&MsgInvokeFlow{}, "bpmn/InvokeFlow", nil)
+	cdc.RegisterConcrete(&MsgCallEvm{}, "bpmn/CallEvm", nil)
 	// this line is used by starport scaffolding # 2
 }
 
@@ -23,6 +24,9 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	)
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgInvokeFlow{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgCallEvm{},
 	)
 	// this line is used by starport scaffolding # 3
 
